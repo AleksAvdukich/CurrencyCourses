@@ -14,6 +14,7 @@
 		1F55A53521F628BD00FA157E /* data.xml in Resources */ = {isa = PBXBuildFile; fileRef = 1F55A53421F628BD00FA157E /* data.xml */; };
 		1F55A53721F6290500FA157E /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F55A53621F6290500FA157E /* Model.swift */; };
 		1F55A53921F685E100FA157E /* CoursesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F55A53821F685E100FA157E /* CoursesController.swift */; };
+		1FC68F4021F774E800EBD924 /* SettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FC68F3F21F774E800EBD924 /* SettingsController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		1F55A53421F628BD00FA157E /* data.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = data.xml; sourceTree = "<group>"; };
 		1F55A53621F6290500FA157E /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		1F55A53821F685E100FA157E /* CoursesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoursesController.swift; sourceTree = "<group>"; };
+		1FC68F3F21F774E800EBD924 /* SettingsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +63,7 @@
 				1F55A52221F6287500FA157E /* AppDelegate.swift */,
 				1F55A52621F6287500FA157E /* Main.storyboard */,
 				1F55A53621F6290500FA157E /* Model.swift */,
+				1FC68F3F21F774E800EBD924 /* SettingsController.swift */,
 				1F55A53821F685E100FA157E /* CoursesController.swift */,
 				1F55A52921F6287700FA157E /* Assets.xcassets */,
 				1F55A52B21F6287700FA157E /* LaunchScreen.storyboard */,
@@ -142,6 +145,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1FC68F4021F774E800EBD924 /* SettingsController.swift in Sources */,
 				1F55A53921F685E100FA157E /* CoursesController.swift in Sources */,
 				1F55A53721F6290500FA157E /* Model.swift in Sources */,
 				1F55A52321F6287500FA157E /* AppDelegate.swift in Sources */,
