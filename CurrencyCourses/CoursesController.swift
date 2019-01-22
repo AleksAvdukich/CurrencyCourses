@@ -18,15 +18,44 @@ class CoursesController: UITableViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     
+    NotificationCenter.default.addObserver(forName: NSNotification.Name(rawValue: "startLoadingXML"), object: nil, queue: nil) { (notification) in
+      DispatchQueue.main.async { //начинаем грузить XML  и в этот момент надо заменить нашу кнопку
+        let activityIndicator = UIActivityIndicatorView(style: .gray)
+        
+        activityIndicator.color = UIColor.red
+          
+        activityIndicator.startAnimating()
+        self.navigationItem.rightBarButtonItem?.customView = activityIndicator
+      }
+    }
+    
+    
     //отлавливаем уведомление и обновляем View
     NotificationCenter.default.addObserver(forName: NSNotification.Name(rawValue: "dataRefreshed"), object: nil, queue: nil) { (notification) in //блок кода который выполнится в тот момент когда мы отловили уведомление
       //как только обновили данные обновляем таблицу
       DispatchQueue.main.async {
         self.tableView.reloadData()
         self.navigationItem.title = Model.shared.currentDate
+        let burButtonItem = UIBarButtonItem(barButtonSystemItem: .refresh, target: self, action: #selector(self.pushRefreshAction(_:)))
+        self.navigationItem.rightBarButtonItem = burButtonItem
       }
     }
+    
+    NotificationCenter.default.addObserver(forName: NSNotification.Name("ErrorWhenXMLloading"), object: nil, queue: nil) { (notification) in
+      
+      let errorName = notification.userInfo?["ErrorName"]
+      print(errorName)
+      
+      DispatchQueue.main.async {
+        let burButtonItem = UIBarButtonItem(barButtonSystemItem: .refresh, target: self, action: #selector(self.pushRefreshAction(_:)))
+        self.navigationItem.rightBarButtonItem = burButtonItem
+      }
+      
+    }
+    
     navigationItem.title = Model.shared.currentDate
+    //подписались на уведомления, выставили дату и запустили загрузку файла за текущий день
+    Model.shared.loadXMLFile(date: nil)
   }
   
   // MARK: - Table view data source

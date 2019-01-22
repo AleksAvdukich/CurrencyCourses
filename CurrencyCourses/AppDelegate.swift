@@ -16,7 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
   func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
     
-    Model.shared.parseXML() //при запуске приложения загружаем курсы
+    //Model.shared.parseXML() //при запуске приложения загружаем курсы
     Model.shared.loadXMLFile(date: nil)
     
     return true

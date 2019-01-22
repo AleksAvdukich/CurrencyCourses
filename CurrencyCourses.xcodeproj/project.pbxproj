@@ -15,6 +15,8 @@
 		1F55A53721F6290500FA157E /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F55A53621F6290500FA157E /* Model.swift */; };
 		1F55A53921F685E100FA157E /* CoursesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F55A53821F685E100FA157E /* CoursesController.swift */; };
 		1FC68F4021F774E800EBD924 /* SettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FC68F3F21F774E800EBD924 /* SettingsController.swift */; };
+		1FC68F4221F7C48A00EBD924 /* ConverterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FC68F4121F7C48A00EBD924 /* ConverterViewController.swift */; };
+		1FC68F4421F7D0A400EBD924 /* SelectCurrencyController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FC68F4321F7D0A400EBD924 /* SelectCurrencyController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +30,8 @@
 		1F55A53621F6290500FA157E /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		1F55A53821F685E100FA157E /* CoursesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoursesController.swift; sourceTree = "<group>"; };
 		1FC68F3F21F774E800EBD924 /* SettingsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsController.swift; sourceTree = "<group>"; };
+		1FC68F4121F7C48A00EBD924 /* ConverterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConverterViewController.swift; sourceTree = "<group>"; };
+		1FC68F4321F7D0A400EBD924 /* SelectCurrencyController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectCurrencyController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,9 +66,11 @@
 			children = (
 				1F55A52221F6287500FA157E /* AppDelegate.swift */,
 				1F55A52621F6287500FA157E /* Main.storyboard */,
+				1FC68F4121F7C48A00EBD924 /* ConverterViewController.swift */,
+				1FC68F4321F7D0A400EBD924 /* SelectCurrencyController.swift */,
 				1F55A53621F6290500FA157E /* Model.swift */,
-				1FC68F3F21F774E800EBD924 /* SettingsController.swift */,
 				1F55A53821F685E100FA157E /* CoursesController.swift */,
+				1FC68F3F21F774E800EBD924 /* SettingsController.swift */,
 				1F55A52921F6287700FA157E /* Assets.xcassets */,
 				1F55A52B21F6287700FA157E /* LaunchScreen.storyboard */,
 				1F55A52E21F6287700FA157E /* Info.plist */,
@@ -147,6 +153,8 @@
 			files = (
 				1FC68F4021F774E800EBD924 /* SettingsController.swift in Sources */,
 				1F55A53921F685E100FA157E /* CoursesController.swift in Sources */,
+				1FC68F4421F7D0A400EBD924 /* SelectCurrencyController.swift in Sources */,
+				1FC68F4221F7C48A00EBD924 /* ConverterViewController.swift in Sources */,
 				1F55A53721F6290500FA157E /* Model.swift in Sources */,
 				1F55A52321F6287500FA157E /* AppDelegate.swift in Sources */,
 			);

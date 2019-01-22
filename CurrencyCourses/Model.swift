@@ -27,6 +27,18 @@ class Currency {
   
   var Value: String?
   var valueDouble: Double?
+  
+  class func rouble() -> Currency {
+    let r = Currency()
+    r.CharCode = "RUR"
+    r.Name = "Российский рубль"
+    r.Nominal = "1"
+    r.nominalDouble = 1
+    r.Value = "1"
+    r.valueDouble = 1
+    
+    return r
+  }
 }
 
 class Model: NSObject, XMLParserDelegate {//идет по тегам последовательно в XML и когда встречает тот или иной тег он вызывает соответствующую функцию делегата
@@ -34,6 +46,19 @@ class Model: NSObject, XMLParserDelegate {//идет по тегам после�
   
   var currencies: [Currency] = []
   var currentDate: String = ""//подгружаем данные за определенную дату
+  //для конвертации
+  var fromCurrency: Currency? = Currency.rouble()
+  var toCurrency: Currency? = Currency.rouble()
+  
+  func convert(amount: Double?) -> String {
+    if amount == nil {
+      return ""
+    }
+    
+    let d = ((fromCurrency!.nominalDouble! * fromCurrency!.valueDouble!) / (toCurrency!.nominalDouble! * toCurrency!.valueDouble!)) * amount!
+    
+    return String(d)
+  }
   
   var pathForXML: String {
     //получить путь для нашего XML
@@ -65,6 +90,9 @@ class Model: NSObject, XMLParserDelegate {//идет по тегам после�
     let url = URL(string: strUrl)
     
     let task = URLSession.shared.dataTask(with: url!) { (data, responce, error) in
+      
+      var errorGlobal: String?
+      
       if error == nil {//данные которые нам пришли нужно сохранить по пути
         let path =  NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.libraryDirectory, FileManager.SearchPathDomainMask.userDomainMask, true)[0]+"/data.xml"//путь
         let urlForSave = URL(fileURLWithPath: path)
@@ -78,12 +106,23 @@ class Model: NSObject, XMLParserDelegate {//идет по тегам после�
           
         } catch {
           print("Error with save data:\(error.localizedDescription)")
+          errorGlobal = error.localizedDescription
         }
         
       } else {
         print("Error when loadXMLFile:" + error!.localizedDescription)
+        errorGlobal = error?.localizedDescription
       }
+      
+      if let errorGlobal = errorGlobal {
+        NotificationCenter.default.post(name: NSNotification.Name("ErrorWhenXMLloading"), object: self, userInfo: ["ErrorName":errorGlobal])
+      }
+      
     }
+    
+    //уведомление о том что мы начинаем грузить XML
+    NotificationCenter.default.post(name: NSNotification.Name(rawValue: "startLoadingXML"), object: self)
+    
     task.resume()
     
   }
@@ -91,15 +130,29 @@ class Model: NSObject, XMLParserDelegate {//идет по тегам после�
   //проверяем есть ли у нас загруженный файл, если он есть то будем парсить загруженный, если нет то будем парсить по умолчанию data.xml
   //распарсить XML и положить его в currencies: [Currency], отправить уведомление приложению о том что его данные обновились
   func parseXML() {
-    currencies = [] //перед тем как парсить обнуляем массив
+    currencies = [Currency.rouble()] //перед тем как парсить обнуляем массив
     
     let parser = XMLParser(contentsOf: urlForXML)
     parser?.delegate = self
     parser?.parse()
     //после того как распарсили XML  оказываемся здесь
     print("Данные обновлены")
+    
+    
     //после этого мы должны обновить View, чтобы показать новые данные
     NotificationCenter.default.post(name: NSNotification.Name(rawValue: "dataRefreshed"), object: self)//отправится уведомление по всему приложению
+    
+    for c in currencies {
+      if c.CharCode == fromCurrency?.CharCode {
+        fromCurrency = c
+      }
+      
+      if c.CharCode == toCurrency?.CharCode {
+        toCurrency = c
+      }
+      
+    }
+    
   }
   
   //как только он находит любой елемент он вызывает этот метод, в этом методе у нас все данные которые будут а аттрибутах XML у нас будут в словаре attributeDict
