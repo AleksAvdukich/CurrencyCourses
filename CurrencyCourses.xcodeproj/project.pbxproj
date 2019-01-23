@@ -17,6 +17,7 @@
 		1FC68F4021F774E800EBD924 /* SettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FC68F3F21F774E800EBD924 /* SettingsController.swift */; };
 		1FC68F4221F7C48A00EBD924 /* ConverterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FC68F4121F7C48A00EBD924 /* ConverterViewController.swift */; };
 		1FC68F4421F7D0A400EBD924 /* SelectCurrencyController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FC68F4321F7D0A400EBD924 /* SelectCurrencyController.swift */; };
+		1FC68F4821F7F24800EBD924 /* CourseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FC68F4721F7F24800EBD924 /* CourseTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		1FC68F3F21F774E800EBD924 /* SettingsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsController.swift; sourceTree = "<group>"; };
 		1FC68F4121F7C48A00EBD924 /* ConverterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConverterViewController.swift; sourceTree = "<group>"; };
 		1FC68F4321F7D0A400EBD924 /* SelectCurrencyController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectCurrencyController.swift; sourceTree = "<group>"; };
+		1FC68F4721F7F24800EBD924 /* CourseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +70,7 @@
 				1F55A52621F6287500FA157E /* Main.storyboard */,
 				1FC68F4121F7C48A00EBD924 /* ConverterViewController.swift */,
 				1FC68F4321F7D0A400EBD924 /* SelectCurrencyController.swift */,
+				1FC68F4721F7F24800EBD924 /* CourseTableViewCell.swift */,
 				1F55A53621F6290500FA157E /* Model.swift */,
 				1F55A53821F685E100FA157E /* CoursesController.swift */,
 				1FC68F3F21F774E800EBD924 /* SettingsController.swift */,
@@ -157,6 +160,7 @@
 				1FC68F4221F7C48A00EBD924 /* ConverterViewController.swift in Sources */,
 				1F55A53721F6290500FA157E /* Model.swift in Sources */,
 				1F55A52321F6287500FA157E /* AppDelegate.swift in Sources */,
+				1FC68F4821F7F24800EBD924 /* CourseTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

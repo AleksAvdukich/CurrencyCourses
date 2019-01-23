@@ -71,13 +71,15 @@ class CoursesController: UITableViewController {
   }
   
   
-  override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
+  override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell  {
+    let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! CourseTableViewCell
     
     let courseForCell = Model.shared.currencies[indexPath.row]
     
-    cell.textLabel?.text = courseForCell.Name
-    cell.detailTextLabel?.text = courseForCell.Value
+    cell.initCell(currency: courseForCell)
+    
+//    cell.textLabel?.text = courseForCell.Name
+//    cell.detailTextLabel?.text = courseForCell.Value
     
     return cell
   }
