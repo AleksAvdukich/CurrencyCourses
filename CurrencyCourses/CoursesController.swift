@@ -54,11 +54,13 @@ class CoursesController: UITableViewController {
     }
     
     navigationItem.title = Model.shared.currentDate
+    
+  }
+  
+  override func viewDidAppear(_ animated: Bool) {
     //подписались на уведомления, выставили дату и запустили загрузку файла за текущий день
     Model.shared.loadXMLFile(date: nil)
   }
-  
-  // MARK: - Table view data source
   
   override func numberOfSections(in tableView: UITableView) -> Int {
     // #warning Incomplete implementation, return the number of sections
